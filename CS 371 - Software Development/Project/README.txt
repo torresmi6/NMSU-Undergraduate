@@ -1,0 +1,1 @@
+Project is in separate repository: https://github.com/NMSU-CS-Cook/cs371-project-rhythm
