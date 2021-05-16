@@ -1,0 +1,6 @@
+Map Coordinates
+
+Right (x)  = 115
+Left (x)   = 16
+Bottom (y) = 103
+Top (y)    = 3

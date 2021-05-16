@@ -1,0 +1,5 @@
+#N canvas 1868 353 450 300 12;
+#X obj 145 213 dac~;
+#X obj 150 61 keyname;
+#X obj 146 173 osc~ 130.8;
+#X connect 2 0 0 0;

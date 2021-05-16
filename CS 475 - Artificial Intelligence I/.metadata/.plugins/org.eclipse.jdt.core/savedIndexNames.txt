@@ -1,0 +1,9 @@
+INDEX VERSION 1.131+C:\Users\Michael\Documents\Michael\CS 475\.metadata\.plugins\org.eclipse.jdt.core
+978637536.index
+434025391.index
+3220278891.index
+2154710053.index
+45594173.index
+2471950593.index
+3333951409.index
+548831249.index

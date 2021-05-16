@@ -1,0 +1,7 @@
+Coverage1 Errors
+
+IglooScore1: 
+	The sum was not being calculated correctly. The function was meant to find the lowest 		score, sum all of the scores, then subtract the lowest score from the sum. The program 	       found the highest score instead between the first two scores. This was fixed.
+
+IglooScore2:
+	This program was not using the correct socres for the overall score. It was designed to 	find the lowest score and then set the usable scores to the remaining two scores. When 		it was checking to see if score2 was the lowest, if it was, it set the usable scores to 	score1 and score2. Score1 and Score3 should have been used, not score2, as the lowest 		score is thrown away.

@@ -1,0 +1,6 @@
+1. I estmiate it will take 3 hours to complete this assignment.
+2. Thought Design: 1 hour
+   Programming: 2 hours
+   Debugging: 1.5 hours
+   Total: 4.5 hours
+3. I was around 77% accurate with 33% error.

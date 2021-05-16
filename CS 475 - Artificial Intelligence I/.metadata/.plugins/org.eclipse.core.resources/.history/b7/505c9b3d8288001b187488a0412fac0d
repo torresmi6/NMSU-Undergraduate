@@ -1,0 +1,393 @@
+package vacuumMidterm;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import aima.core.search.framework.problem.Problem;
+
+public class vacuumProblem implements Problem<char[], char[]>{
+
+	char[] initialState = new char[4];
+	
+	public static void main(String[] args) {
+		
+
+	}
+
+	//Constructor
+	public vacuumProblem(char[] initialState) {
+		this.initialState = initialState;
+	}
+	
+	
+	@Override
+	public char[] getInitialState() {
+		// TODO Auto-generated method stub
+		return initialState;
+	}
+
+	@Override
+	public List<char[]> getActions(char[] state) {
+		ArrayList<char[]> actions = new ArrayList<char[]>();
+		
+		if(state[0] == 'A') {
+			char[] temp = {'A', 'B'};
+			actions.add(temp);
+			temp[1] = 'C';
+			actions.add(temp);
+			return actions;
+		}
+		if(state[0] == 'B') {
+			char[] temp = {'B', 'A'};
+			actions.add(temp);
+			temp[1] = 'C';
+			actions.add(temp);
+			return actions;
+		}
+		if(state[0] == 'C') {
+			char[] temp = {'C', 'A'};
+			actions.add(temp);
+			temp[1] = 'B';
+			actions.add(temp);
+			return actions;
+		}
+		
+		return actions;
+	}
+
+	@Override
+	public char[] getResult(char[] state, char[] action) {
+		
+		
+		if(state[0] == 'A') {
+			if(action[1] == 'B') {
+				if(state[1] == '1' && state[2] == '1' && state[3] == '1') {
+					char[] temp = {'B','1','1','1'};
+					return temp;
+				}
+				if(state[1] == '1' && state[2] == '1' && state[3] == '0') {
+					char[] temp = {'B','1','1','0'};
+					return temp;
+				}
+				if(state[1] == '1' && state[2] == '0' && state[3] == '0') {
+					char[] temp = {'B','1','0','0'};
+					return temp;
+				}
+				if(state[1] == '0' && state[2] == '0' && state[3] == '0') {
+					char[] temp = {'B','0','0','0'};
+					return temp;
+				}
+				if(state[1] == '0' && state[2] == '1' && state[3] == '1') {
+					char[] temp = {'B','0','1','1'};
+					return temp;
+				}
+				if(state[1] == '0' && state[2] == '0' && state[3] == '1') {
+					char[] temp = {'B','0','0','1'};
+					return temp;
+				}
+				if(state[1] == '0' && state[2] == '1' && state[3] == '0') {
+					char[] temp = {'B','0','1','0'};
+					return temp;
+				}
+				if(state[1] == '1' && state[2] == '0' && state[3] == '1') {
+					char[] temp = {'B','1','0','1'};
+					return temp;
+				}
+			}
+			if(action[1] == 'C') {
+				if(state[1] == '1' && state[2] == '1' && state[3] == '1') {
+					char[] temp = {'C','1','1','1'};
+					return temp;
+				}
+				if(state[1] == '1' && state[2] == '1' && state[3] == '0') {
+					char[] temp = {'C','1','1','0'};
+					return temp;
+				}
+				if(state[1] == '1' && state[2] == '0' && state[3] == '0') {
+					char[] temp = {'C','1','0','0'};
+					return temp;
+				}
+				if(state[1] == '0' && state[2] == '0' && state[3] == '0') {
+					char[] temp = {'C','0','0','0'};
+					return temp;
+				}
+				if(state[1] == '0' && state[2] == '1' && state[3] == '1') {
+					char[] temp = {'C','0','1','1'};
+					return temp;
+				}
+				if(state[1] == '0' && state[2] == '0' && state[3] == '1') {
+					char[] temp = {'C','0','0','1'};
+					return temp;
+				}
+				if(state[1] == '0' && state[2] == '1' && state[3] == '0') {
+					char[] temp = {'C','0','1','0'};
+					return temp;
+				}
+				if(state[1] == '1' && state[2] == '0' && state[3] == '1') {
+					char[] temp = {'C','1','0','1'};
+					return temp;
+				}
+			}
+		}
+		
+		if(state[0] == 'B') {
+			if(action[1] == 'A') {
+				if(state[1] == '1' && state[2] == '1' && state[3] == '1') {
+					char[] temp = {'A','1','1','1'};
+					return temp;
+				}
+				if(state[1] == '1' && state[2] == '1' && state[3] == '0') {
+					char[] temp = {'A','1','1','0'};
+					return temp;
+				}
+				if(state[1] == '1' && state[2] == '0' && state[3] == '0') {
+					char[] temp = {'A','1','0','0'};
+					return temp;
+				}
+				if(state[1] == '0' && state[2] == '0' && state[3] == '0') {
+					char[] temp = {'A','0','0','0'};
+					return temp;
+				}
+				if(state[1] == '0' && state[2] == '1' && state[3] == '1') {
+					char[] temp = {'A','0','1','1'};
+					return temp;
+				}
+				if(state[1] == '0' && state[2] == '0' && state[3] == '1') {
+					char[] temp = {'A','0','0','1'};
+					return temp;
+				}
+				if(state[1] == '0' && state[2] == '1' && state[3] == '0') {
+					char[] temp = {'A','0','1','0'};
+					return temp;
+				}
+				if(state[1] == '1' && state[2] == '0' && state[3] == '1') {
+					char[] temp = {'A','1','0','1'};
+					return temp;
+				}
+			}
+			if(action[1] == 'C') {
+				if(state[1] == '1' && state[2] == '1' && state[3] == '1') {
+					char[] temp = {'C','1','1','1'};
+					return temp;
+				}
+				if(state[1] == '1' && state[2] == '1' && state[3] == '0') {
+					char[] temp = {'C','1','1','0'};
+					return temp;
+				}
+				if(state[1] == '1' && state[2] == '0' && state[3] == '0') {
+					char[] temp = {'C','1','0','0'};
+					return temp;
+				}
+				if(state[1] == '0' && state[2] == '0' && state[3] == '0') {
+					char[] temp = {'C','0','0','0'};
+					return temp;
+				}
+				if(state[1] == '0' && state[2] == '1' && state[3] == '1') {
+					char[] temp = {'C','0','1','1'};
+					return temp;
+				}
+				if(state[1] == '0' && state[2] == '0' && state[3] == '1') {
+					char[] temp = {'C','0','0','1'};
+					return temp;
+				}
+				if(state[1] == '0' && state[2] == '1' && state[3] == '0') {
+					char[] temp = {'C','0','1','0'};
+					return temp;
+				}
+				if(state[1] == '1' && state[2] == '0' && state[3] == '1') {
+					char[] temp = {'C','1','0','1'};
+					return temp;
+				}
+			}
+		}
+
+		if(state[0] == 'C') {
+			if(action[1] == 'B') {
+				if(state[1] == '1' && state[2] == '1' && state[3] == '1') {
+					char[] temp = {'B','1','1','1'};
+					return temp;
+				}
+				if(state[1] == '1' && state[2] == '1' && state[3] == '0') {
+					char[] temp = {'B','1','1','0'};
+					return temp;
+				}
+				if(state[1] == '1' && state[2] == '0' && state[3] == '0') {
+					char[] temp = {'B','1','0','0'};
+					return temp;
+				}
+				if(state[1] == '0' && state[2] == '0' && state[3] == '0') {
+					char[] temp = {'B','0','0','0'};
+					return temp;
+				}
+				if(state[1] == '0' && state[2] == '1' && state[3] == '1') {
+					char[] temp = {'B','0','1','1'};
+					return temp;
+				}
+				if(state[1] == '0' && state[2] == '0' && state[3] == '1') {
+					char[] temp = {'B','0','0','1'};
+					return temp;
+				}
+				if(state[1] == '0' && state[2] == '1' && state[3] == '0') {
+					char[] temp = {'B','0','1','0'};
+					return temp;
+				}
+				if(state[1] == '1' && state[2] == '0' && state[3] == '1') {
+					char[] temp = {'B','1','0','1'};
+					return temp;
+				}
+			}
+			if(action[1] == 'A') {
+				if(state[1] == '1' && state[2] == '1' && state[3] == '1') {
+					char[] temp = {'A','1','1','1'};
+					return temp;
+				}
+				if(state[1] == '1' && state[2] == '1' && state[3] == '0') {
+					char[] temp = {'A','1','1','0'};
+					return temp;
+				}
+				if(state[1] == '1' && state[2] == '0' && state[3] == '0') {
+					char[] temp = {'A','1','0','0'};
+					return temp;
+				}
+				if(state[1] == '0' && state[2] == '0' && state[3] == '0') {
+					char[] temp = {'A','0','0','0'};
+					return temp;
+				}
+				if(state[1] == '0' && state[2] == '1' && state[3] == '1') {
+					char[] temp = {'A','0','1','1'};
+					return temp;
+				}
+				if(state[1] == '0' && state[2] == '0' && state[3] == '1') {
+					char[] temp = {'A','0','0','1'};
+					return temp;
+				}
+				if(state[1] == '0' && state[2] == '1' && state[3] == '0') {
+					char[] temp = {'A','0','1','0'};
+					return temp;
+				}
+				if(state[1] == '1' && state[2] == '0' && state[3] == '1') {
+					char[] temp = {'A','1','0','1'};
+					return temp;
+				}
+			}
+			if(action[0] == 'S') {
+				if(state[1] == 'B') {
+					if(state[1] == '1' && state[2] == '1' && state[3] == '1') {
+						char[] temp = {'B','1','1','1'};
+						return temp;
+					}
+					if(state[1] == '1' && state[2] == '1' && state[3] == '0') {
+						char[] temp = {'B','1','1','0'};
+						return temp;
+					}
+					if(state[1] == '1' && state[2] == '0' && state[3] == '0') {
+						char[] temp = {'B','1','0','0'};
+						return temp;
+					}
+					if(state[1] == '0' && state[2] == '0' && state[3] == '0') {
+						char[] temp = {'B','0','0','0'};
+						return temp;
+					}
+					if(state[1] == '0' && state[2] == '1' && state[3] == '1') {
+						char[] temp = {'B','0','1','1'};
+						return temp;
+					}
+					if(state[1] == '0' && state[2] == '0' && state[3] == '1') {
+						char[] temp = {'B','0','0','1'};
+						return temp;
+					}
+					if(state[1] == '0' && state[2] == '1' && state[3] == '0') {
+						char[] temp = {'B','0','1','0'};
+						return temp;
+					}
+					if(state[1] == '1' && state[2] == '0' && state[3] == '1') {
+						char[] temp = {'B','1','0','1'};
+						return temp;
+					}
+				}
+				if(action[1] == 'A') {
+					if(state[1] == '1' && state[2] == '1' && state[3] == '1') {
+						char[] temp = {'A','1','1','1'};
+						return temp;
+					}
+					if(state[1] == '1' && state[2] == '1' && state[3] == '0') {
+						char[] temp = {'A','1','1','0'};
+						return temp;
+					}
+					if(state[1] == '1' && state[2] == '0' && state[3] == '0') {
+						char[] temp = {'A','1','0','0'};
+						return temp;
+					}
+					if(state[1] == '0' && state[2] == '0' && state[3] == '0') {
+						char[] temp = {'A','0','0','0'};
+						return temp;
+					}
+					if(state[1] == '0' && state[2] == '1' && state[3] == '1') {
+						char[] temp = {'A','0','1','1'};
+						return temp;
+					}
+					if(state[1] == '0' && state[2] == '0' && state[3] == '1') {
+						char[] temp = {'A','0','0','1'};
+						return temp;
+					}
+					if(state[1] == '0' && state[2] == '1' && state[3] == '0') {
+						char[] temp = {'A','0','1','0'};
+						return temp;
+					}
+					if(state[1] == '1' && state[2] == '0' && state[3] == '1') {
+						char[] temp = {'A','1','0','1'};
+						return temp;
+					}
+				}
+				if(action[1] == 'C') {
+					if(state[1] == '1' && state[2] == '1' && state[3] == '1') {
+						char[] temp = {'C','1','1','1'};
+						return temp;
+					}
+					if(state[1] == '1' && state[2] == '1' && state[3] == '0') {
+						char[] temp = {'C','1','1','0'};
+						return temp;
+					}
+					if(state[1] == '1' && state[2] == '0' && state[3] == '0') {
+						char[] temp = {'C','1','0','0'};
+						return temp;
+					}
+					if(state[1] == '0' && state[2] == '0' && state[3] == '0') {
+						char[] temp = {'C','0','0','0'};
+						return temp;
+					}
+					if(state[1] == '0' && state[2] == '1' && state[3] == '1') {
+						char[] temp = {'C','0','1','1'};
+						return temp;
+					}
+					if(state[1] == '0' && state[2] == '0' && state[3] == '1') {
+						char[] temp = {'C','0','0','1'};
+						return temp;
+					}
+					if(state[1] == '0' && state[2] == '1' && state[3] == '0') {
+						char[] temp = {'C','0','1','0'};
+						return temp;
+					}
+					if(state[1] == '1' && state[2] == '0' && state[3] == '1') {
+						char[] temp = {'C','1','0','1'};
+						return temp;
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public boolean testGoal(char[] state) {
+		if(state[1] == '0' && state[2] == '0' && state[3] == '0') {
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public double getStepCosts(char[] state, char[] action, char[] stateDelta) {
+		return 1;
+	}
+
+}

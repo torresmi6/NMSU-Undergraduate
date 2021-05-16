@@ -1,0 +1,69 @@
+package lab5;
+
+public class Lab5 {
+
+	public static int max(int x, int y) {
+		if(x > y) {
+			return x;
+		}
+		else {
+			return y;
+		}
+	}
+	public static void knapSackDp(int[] S, int[] V, int M){
+		
+		int itmCnt = S.length;
+		int table[][] = new int[itmCnt + 1][M + 1];
+		
+		for (int i = 0; i <= itmCnt; i++) { 
+            for (int x = 0; x <= M; x++) { 
+                if (i == 0 || x == 0) 
+                    table[i][x] = 0; 
+                else if (S[i - 1]<= x) 
+                    table[i][x] = max(V[i - 1] + table[i - 1][x - S[i - 1]], table[i - 1][x]); 
+                else
+                    table[i][x] = table[i - 1][x]; 
+            } 
+        }
+		
+		int ans = table[itmCnt][M], ansCpy = table[itmCnt][M];
+		int weightCopy = M;
+		int count = 1;
+		
+		if(ans == 0) {
+			System.out.println("No item was chosen");
+			return;
+		}
+		for (int i = itmCnt; i > 0 && ans > 0; i--) { 
+            if (ans == table[i - 1][weightCopy]) {
+            }
+            else { 
+                System.out.println("Item " + count + ": W = " + S[i - 1] + ", V = " + V[i-1]); 
+                count++;
+                ans = ans - V[i - 1]; 
+                weightCopy = weightCopy - S[i - 1]; 
+            } 
+        }
+		System.out.println("were chosen and the total value is " + ansCpy + ".");
+		
+	}
+	
+	public static void test() {
+		
+		// Test 1
+		int[] W = {4, 5, 7};
+		int[] V = {2, 3, 4};
+		int M = 10;
+		knapSackDp(W, V, M);
+		
+		// Test 2
+		int[] W2 = {6, 5, 7, 3, 1};
+		int[] V2 = {7, 3, 4, 4, 3};
+		int M2 = 13;
+		knapSackDp(W2, V2, M2);
+	}
+	public static void main(String[] args) {
+		
+	}
+
+}
